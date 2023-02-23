@@ -1,7 +1,8 @@
 import { galleryItems } from "./gallery-items.js";
 
 // Change code below this line
-import * as basicLightbox from "basiclightbox";
+import * as basicLightbox from "./02-lightbox";
+
 const gallery = document.querySelector(".gallery");
 
 function createGalleryItem(item) {
@@ -30,6 +31,7 @@ for (let i = 0; i < galleryItems.length; i++) {
 }
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
+  const target = event.target;
   if (event.target.classList.contains("gallery__image")) {
     const source = event.target.dataset.source;
     const instance = basicLightbox.create(`<img src="${source}">`);
